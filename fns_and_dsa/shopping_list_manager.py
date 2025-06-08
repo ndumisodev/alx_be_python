@@ -25,7 +25,7 @@ def main():
             if not shopping_list:
                 print("The list is empty.")
             else:
-                print("Shopping List:")
+                # print("Shopping List:")
                 for i, item in enumerate(shopping_list, start=1):
                     print(f"{i}. {item}")
         elif choice == '4':
