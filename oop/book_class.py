@@ -12,12 +12,27 @@ class Book:
         self.title = title
         self.author = author
         self.year = year
+        print(f"Book '{self.title}' ({self.year}) has been created.")
 
     def __str__(self):
         """
         Returns a human-readable string representation of the Book object.
         """
         return f"Book: {self.title} by {self.author} ({self.year})"
+
+    def __repr__(self):
+        """
+        Returns the official string representation of the Book object,
+        allowing it to be unambiguously recreated.
+        """
+        return f"Book('{self.title}', '{self.author}', {self.year})"
+
+    def __del__(self):
+        """
+        Destructor method called when the Book object is about to be destroyed.
+        """
+        print(f"Book '{self.title}' ({self.year}) is being deleted.")
+
 
 class EBook(Book):
     """
@@ -37,6 +52,19 @@ class EBook(Book):
         """
         return f"EBook: {self.title} by {self.author} ({self.year}), File Size: {self.file_size}KB"
 
+    def __repr__(self):
+        """
+        Returns the official string representation of the EBook object.
+        """
+        return f"EBook('{self.title}', '{self.author}', {self.year}, {self.file_size})"
+
+    def __del__(self):
+        """
+        Destructor method called when the EBook object is about to be destroyed.
+        """
+        print(f"EBook '{self.title}' ({self.year}) is being deleted.")
+
+
 class PrintBook(Book):
     """
     Derived class representing a print book, inheriting from Book.
@@ -55,6 +83,19 @@ class PrintBook(Book):
         """
         return f"PrintBook: {self.title} by {self.author} ({self.year}), Page Count: {self.page_count}"
 
+    def __repr__(self):
+        """
+        Returns the official string representation of the PrintBook object.
+        """
+        return f"PrintBook('{self.title}', '{self.author}', {self.year}, {self.page_count})"
+
+    def __del__(self):
+        """
+        Destructor method called when the PrintBook object is about to be destroyed.
+        """
+        print(f"PrintBook '{self.title}' ({self.year}) is being deleted.")
+
+
 class Library:
     """
     Represents a library that manages a collection of books.
@@ -64,6 +105,7 @@ class Library:
     """
     def __init__(self):
         self.books = [] # Initialize an empty list to hold book objects
+        print("Library instance created.")
 
     def add_book(self, book: Book):
         """
@@ -90,3 +132,4 @@ class Library:
         for book in self.books:
             print(book) # This will automatically call the appropriate __str__ method
         print("--- End of Book List ---")
+
