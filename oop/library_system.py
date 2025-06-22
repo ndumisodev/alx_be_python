@@ -17,9 +17,9 @@ class Book:
     def __str__(self):
         """
         Returns a human-readable string representation of the Book object.
-        Matches the format: "TITLE by AUTHOR, published in YEAR"
+        Matches the format: "Book: TITLE by AUTHOR"
         """
-        return f"{self.title} by {self.author}, published in {self.year}"
+        return f"Book: {self.title} by {self.author}"
 
     def __repr__(self):
         """
@@ -31,9 +31,9 @@ class Book:
     def __del__(self):
         """
         Destructor method called when the Book object is about to be destroyed.
-        Matches the format: "Deleting TITLE"
+        No print statement to match test expectations.
         """
-        print(f"Deleting {self.title}")
+        pass # Removed print statement
 
 
 class EBook(Book):
@@ -63,9 +63,9 @@ class EBook(Book):
     def __del__(self):
         """
         Destructor method called when the EBook object is about to be destroyed.
+        No print statement to match test expectations.
         """
-        # Adjusted for consistency with the base Book's __del__
-        print(f"Deleting {self.title}")
+        pass # Removed print statement
 
 
 class PrintBook(Book):
@@ -95,9 +95,9 @@ class PrintBook(Book):
     def __del__(self):
         """
         Destructor method called when the PrintBook object is about to be destroyed.
+        No print statement to match test expectations.
         """
-        # Adjusted for consistency with the base Book's __del__
-        print(f"Deleting {self.title}")
+        pass # Removed print statement
 
 
 class Library:
@@ -136,4 +136,3 @@ class Library:
         for book in self.books:
             print(book) # This will automatically call the appropriate __str__ method
         print("--- End of Book List ---")
-
