@@ -6,16 +6,18 @@ class Book:
     Attributes:
         title (str): The title of the book.
         author (str): The author of the book.
+        year (int): The publication year of the book.
     """
-    def __init__(self, title: str, author: str):
+    def __init__(self, title: str, author: str, year: int):
         self.title = title
         self.author = author
+        self.year = year
 
     def __str__(self):
         """
         Returns a human-readable string representation of the Book object.
         """
-        return f"Book: {self.title} by {self.author}"
+        return f"Book: {self.title} by {self.author} ({self.year})"
 
 class EBook(Book):
     """
@@ -23,9 +25,9 @@ class EBook(Book):
     Additional Attributes:
         file_size (int): The size of the e-book file in KB.
     """
-    def __init__(self, title: str, author: str, file_size: int):
+    def __init__(self, title: str, author: str, year: int, file_size: int):
         # Call the constructor of the base class (Book)
-        super().__init__(title, author)
+        super().__init__(title, author, year)
         self.file_size = file_size
 
     def __str__(self):
@@ -33,7 +35,7 @@ class EBook(Book):
         Returns a human-readable string representation of the EBook object.
         Overrides the __str__ method from the base Book class.
         """
-        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
+        return f"EBook: {self.title} by {self.author} ({self.year}), File Size: {self.file_size}KB"
 
 class PrintBook(Book):
     """
@@ -41,9 +43,9 @@ class PrintBook(Book):
     Additional Attributes:
         page_count (int): The number of pages in the print book.
     """
-    def __init__(self, title: str, author: str, page_count: int):
+    def __init__(self, title: str, author: str, year: int, page_count: int):
         # Call the constructor of the base class (Book)
-        super().__init__(title, author)
+        super().__init__(title, author, year)
         self.page_count = page_count
 
     def __str__(self):
@@ -51,7 +53,7 @@ class PrintBook(Book):
         Returns a human-readable string representation of the PrintBook object.
         Overrides the __str__ method from the base Book class.
         """
-        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
+        return f"PrintBook: {self.title} by {self.author} ({self.year}), Page Count: {self.page_count}"
 
 class Library:
     """
@@ -88,4 +90,3 @@ class Library:
         for book in self.books:
             print(book) # This will automatically call the appropriate __str__ method
         print("--- End of Book List ---")
-
