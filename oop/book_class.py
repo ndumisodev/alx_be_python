@@ -12,13 +12,14 @@ class Book:
         self.title = title
         self.author = author
         self.year = year
-        print(f"Book '{self.title}' ({self.year}) has been created.")
+        # Removed "Book ... has been created." message as it's not in expected output
 
     def __str__(self):
         """
         Returns a human-readable string representation of the Book object.
+        Matches the format: "TITLE by AUTHOR, published in YEAR"
         """
-        return f"Book: {self.title} by {self.author} ({self.year})"
+        return f"{self.title} by {self.author}, published in {self.year}"
 
     def __repr__(self):
         """
@@ -30,8 +31,9 @@ class Book:
     def __del__(self):
         """
         Destructor method called when the Book object is about to be destroyed.
+        Matches the format: "Deleting TITLE"
         """
-        print(f"Book '{self.title}' ({self.year}) is being deleted.")
+        print(f"Deleting {self.title}")
 
 
 class EBook(Book):
@@ -62,7 +64,8 @@ class EBook(Book):
         """
         Destructor method called when the EBook object is about to be destroyed.
         """
-        print(f"EBook '{self.title}' ({self.year}) is being deleted.")
+        # Adjusted for consistency with the base Book's __del__
+        print(f"Deleting {self.title}")
 
 
 class PrintBook(Book):
@@ -93,7 +96,8 @@ class PrintBook(Book):
         """
         Destructor method called when the PrintBook object is about to be destroyed.
         """
-        print(f"PrintBook '{self.title}' ({self.year}) is being deleted.")
+        # Adjusted for consistency with the base Book's __del__
+        print(f"Deleting {self.title}")
 
 
 class Library:
@@ -105,7 +109,7 @@ class Library:
     """
     def __init__(self):
         self.books = [] # Initialize an empty list to hold book objects
-        print("Library instance created.")
+        # Removed "Library instance created." message as it's not in expected output
 
     def add_book(self, book: Book):
         """
@@ -132,4 +136,3 @@ class Library:
         for book in self.books:
             print(book) # This will automatically call the appropriate __str__ method
         print("--- End of Book List ---")
-
